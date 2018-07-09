@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>Nate's Resume</title>
+
+    <style type="text/css">
+       * { margin: 0; padding: 0; }
+       body { font: 16px Helvetica, Sans-Serif; line-height: 24px;}
+       .clear { clear: both; }
+       #page-wrap { width: 800px; margin: 40px auto 60px; }
+       #pic { float: right; margin: -30px 0 0 0; }
+       h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
+       h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+       h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+       p { margin: 0 0 16px 0; }
+       a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
+       a:hover { border-bottom-style: solid; color: black; }
+       ul { margin: 0 0 32px 17px; }
+       #objective { width: 500px; float: left; }
+       #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
+       dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
+       dd { width: 600px; float: right; }
+       dd.clear { float: none; margin: 0; height: 15px; }
+    </style>
+</head>
+
+<body>
+
+    <div id="page-wrap">
+
+        <div id="contact-info" class="vcard">
+            <div id="pic" borderstyle="inset"></div>
+
+            <!-- Microformats! -->
+
+            <h1 class="fn">Nathaniel Diamant</h1>
+
+            <p>
+                Cell: <span class="tel">510-520-0250</span><br />
+                Email: <a class="email" href="mailto:ndiamant@hmc.edu">greatoldone@lovecraft.com</a></span><br />
+                Github: <a class="email" href="https://github.com/ndiamant">github.com/ndiamant</a>
+            </p>
+        </div>
+
+        <div id="objective">
+            <p>
+                I am mathemetician and computer scientist.
+                I have a strong background in the theory of machine learning from school and self study.
+                I have applied my knowledge in two internships where I contributed to the full machine learning pipeline - from data collection to modelling.
+            </p>
+        </div>
+
+        <div class="clear"></div>
+
+        <dl>
+            <dd class="clear"></dd>
+
+            <dt>Education</dt>
+            <dd>
+                <h2>Harvey Mudd College - <span> Claremont, CA - 2015-2019</span></h2>
+                <p><strong>Major:</strong> Computer Science Math Joint Major<br />
+                   <strong>GPA:</strong> 3.873</p>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Skills</dt>
+            <dd>
+                <h2>Office skills</h2>
+                <p>Office and records management, database administration, event organization, customer support, travel coordination</p>
+
+                <h2>Computer skills</h2>
+                <p>Microsoft productivity software (Word, Excel, etc), Adobe Creative Suite, Windows</p>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Experience</dt>
+            <dd>
+                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
+                <ul>
+                    <li>Inspired and won highest peasant death competition among servants</li>
+                    <li>Helped coordinate managers to grow cult following</li>
+                    <li>Provided untimely deaths to all who opposed</li>
+                </ul>
+
+                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
+                <ul>
+                    <li>Worked on grass-roots promotional campaigns</li>
+                    <li>Reduced theft and property damage percentages</li>
+                    <li>Janitorial work, Laundry</li>
+                </ul>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Personal Projects</dt>
+            <dd>
+                <h2>Doomsday Cult <span>Leader/Overlord - Baton Rogue, LA - 1926-2010</span></h2>
+                <ul>
+                    <li>Inspired and won highest peasant death competition among servants</li>
+                    <li>Helped coordinate managers to grow cult following</li>
+                    <li>Provided untimely deaths to all who opposed</li>
+                </ul>
+
+                <h2>The Watering Hole <span>Bartender/Server - Milwaukee, WI - 2009</span></h2>
+                <ul>
+                    <li>Worked on grass-roots promotional campaigns</li>
+                    <li>Reduced theft and property damage percentages</li>
+                    <li>Janitorial work, Laundry</li>
+                </ul>
+            </dd>
+
+            <dd class="clear"></dd>
+
+            <dt>Hobbies</dt>
+            <dd>World Domination, Deep Sea Diving, Murder Most Foul</dd>
+
+            <dd class="clear"></dd>
+
+            <dt>References</dt>
+            <dd>Available on request</dd>
+
+            <dd class="clear"></dd>
+        </dl>
+
+        <div class="clear"></div>
+
+    </div>
+    <script type="text/javascript">
+            var h = 180;
+            var w = 180;
+            var svg = d3.select("#pic")
+            .append("svg")
+            .attr("height", h)
+            .attr("width", w)
+            .attr("transform", "translate(-8, 88)");
+
+            var x = 20;
+            var y = 20;
+            var r = 15;
+            var n = 10;
+            function nextY() {
+                if (y <= 2 * r) {
+                    y += r;
+                    return y;
+                }
+                if (y >= h - 2 * r) {
+                    y -= r;
+                    return y
+                }
+                var flip = d3.randomUniform(1)();
+                if (flip > .5) {
+                    y += r;
+                    return y;
+                }
+                y -= r;
+                return y;
+            }
+            function nextX() {
+                if (x <= 2 * r) {
+                    x += r;
+                    return x;
+                }
+                if (x >= w - 2 * r) {
+                    x -= r;
+                    return x
+                }
+                var flip = d3.randomUniform(1)();
+                if (flip > .5) {
+                    x += r;
+                    return x;
+                }
+                x -= r;
+                return x;
+            }
+
+
+            function random_rgba() {
+                var o = Math.round, r = Math.random, s = 255;
+                return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s)  + ', 1)';
+            }
+
+            data = []
+            for (var i = 0; i < n; ++i) {
+                data.push([i, 'rgba(' + (50+100*i/n) +','+ (50+150*i/n) +','+ (200+50*i/n)
+                            +',1)']);
+            }
+
+
+            var rect = svg.selectAll("rect")
+                          .data(data)
+                          .enter()
+                          //.append("circle")
+                          //.attr("cx", x)
+                          //.attr("cy", y)
+                          //.attr("r", r)
+                          .append("rect")
+                          .attr("width", r)
+                          .attr("height", r)
+                          .attr("x", x)
+                          .attr("y", y)
+                          .attr("fill", function(d) {
+                              return d[1];})
+                          .transition()
+                          .delay(function(d) { return d[0]; })
+                          .duration(1000)
+            .on("start", function repeat() {
+            d3.active(this)
+                .attr("y", nextY())
+                .transition()
+                .attr("x", nextX())
+                .transition()
+                .on("start", repeat);
+            });
+
+
+    </script>
+
+</body>
+
+</html>
