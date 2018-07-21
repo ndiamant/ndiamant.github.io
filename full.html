@@ -1,0 +1,127 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <body>
+    <script type="text/javascript">
+            var h = 1000;
+            var w = 1000;
+            var svg = d3.select("body")
+            .append("svg")
+            .attr("height", h)
+            .attr("width", w)
+            .attr("transform", "translate(-8, 88)");
+
+            var x = 20;
+            var y = 20;
+            var r = 15;
+            var n = 500;
+            function nextY() {
+                if (y <= 2 * r) {
+                    y += r;
+                    return y;
+                }
+                if (y >= h - 2 * r) {
+                    y -= r;
+                    return y
+                }
+                var flip = d3.randomUniform(1)();
+                if (flip > .5) {
+                    y += r;
+                    return y;
+                }
+                y -= r;
+                return y;
+            }
+            function nextX() {
+                if (x <= 2 * r) {
+                    x += r;
+                    return x;
+                }
+                if (x >= w - 2 * r) {
+                    x -= r;
+                    return x
+                }
+                var flip = d3.randomUniform(1)();
+                if (flip > .5) {
+                    x += r;
+                    return x;
+                }
+                x -= r;
+                return x;
+            }
+
+
+            function random_rgba() {
+                var o = Math.round, r = Math.random, s = 255;
+                return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s)  + ', 1)';
+            }
+
+            data = []
+            var col = Math.random();
+            if ( col < .2 ) {
+            for (var i = 0; i < n; ++i) {
+                data.push([i, 'rgba(' + (50+100*i/n) +','+ (50+150*i/n) +','+ (200+50*i/n)
+                            +',1)']);
+            }
+            } else if ( col < .4 ) {
+            for (var i = 0; i < n; ++i) {
+                data.push([i, 'rgba(' + (0) +','+ (0) +','+ (0)
+                            +',.1)']);
+            }
+            } else if ( col < .6 ) {
+            for (var i = 0; i < n; ++i) {
+                data.push([i, 'rgba(' + (200+50*i/n) +','+ (50+50*i/n) +','+ (0*i/n)
+                            +',1)']);
+            }
+            } else if ( col < .8 ) {
+            for (var i = 0; i < n; ++i) {
+                data.push([i, 'rgba(' + (200+50*i/n) +','+ (10+100*i/n) +','+ (50+150*i/n)
+                            +',1)']);
+            }
+            } else {
+            for (var i = 0; i < n; ++i) {
+                data.push([i, 'rgba(' + (50+100*i/n) +','+ (200+50*i/n) +','+ (50+50*i/n)
+                            +',1)']);
+            }
+            }
+
+
+
+            var rect = svg.selectAll("rect")
+                          .data(data)
+                          .enter()
+                          //.append("circle")
+                          //.attr("cx", x)
+                          //.attr("cy", y)
+                          //.attr("r", r)
+                          .append("rect")
+                          .attr("width", r)
+                          .attr("height", r)
+                          .attr("x", x)
+                          .attr("y", y)
+                          .attr("fill", function(d) {
+                              return d[1];})
+                          .transition()
+                          .delay(function(d) { return d[0]; })
+                          .duration(1000)
+            .on("start", function repeat() {
+            d3.active(this)
+                .attr("y", nextY())
+                .transition()
+                .attr("x", nextX())
+                .transition()
+                .on("start", repeat);
+            });
+
+
+    </script>
+
+    </body>
+
+</html>
