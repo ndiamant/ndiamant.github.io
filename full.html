@@ -4,18 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
-<head>
     <script type="text/javascript" src="d3/d3.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <body>
     <script type="text/javascript">
-            var h = 1000;
-            var w = 1000;
+            var h = window.innerHeight - 40;
+            var w = window.innerWidth - 40;
             var svg = d3.select("body")
             .append("svg")
             .attr("height", h)
-            .attr("width", w)
-            .attr("transform", "translate(-8, 88)");
+            .attr("width", w);
 
             var x = 20;
             var y = 20;
