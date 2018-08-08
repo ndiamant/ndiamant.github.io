@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+    <p>
+       <input type="text" id="word">
+    </p>
+
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <body>
+    <script type="text/javascript">
+      var h = window.innerHeight - 40;
+      var w = window.innerWidth - 40;
+      var svg = d3.select("body")
+      .append("svg")
+      .attr("height", h)
+      .attr("width", w);
+
+      d3.select("#word").on("input", function() {
+          update(this.value);
+      });
+
+      function update(word) {
+        svg.selectAll("*").remove();
+        sw = word.slice(0, 10);
+        draw(w / 2, h / 2, 1 - Math.floor(w / h), .7 * Math.max(w, h), sw, 1);
+      }
+
+      function draw(x, y, prev_orientation, prev_length, sw, blessed) {
+        if (sw.length == 0) {
+          return;
+        }
+        var choice = sw.charCodeAt(0);
+        sw = sw.substr(1);
+        var l = prev_length / 1.6;
+        var b = l * .2;
+        var o = (prev_orientation + 1) % 2;
+        var group = svg.append("g")
+            .attr("transform", "translate(" + (x) + "," + (y) + ")"
+                + "rotate(" + (180 * (choice % 2)) + ")");
+        if (o == 1) {
+          group.append("rect")
+            .attr("width", l / 2)
+            .attr("height", b)
+            .attr("y", -b / 2)
+            .attr("x", -l / 2);
+          group.append("rect")
+            .attr("width", l / 2)
+            .attr("y", -b / 2)
+            .attr("height", b)
+            .style("fill", 'rgb(' + 255 * blessed + ', 0, 0)');
+         draw(x - l / 2, y, o, l, sw, blessed * (choice % 2));
+         draw(x + l / 2, y, o, l, sw, blessed * (1 - choice % 2));
+        }
+        else {
+          group.append("rect")
+            .attr("width", b)
+            .attr("x", - b / 2)
+            .attr("y", - l / 2)
+            .attr("height", l / 2);
+          group.append("rect")
+            .attr("width", b)
+            .attr("x", - b / 2)
+            .attr("height", l / 2)
+            .style("fill", 'rgb(' + 255 * blessed + ', 0, 0)');
+         draw(x, y - l / 2, o, l, sw, blessed * (choice % 2));
+         draw(x, y + l / 2, o, l, sw, blessed * (1 - choice % 2));
+        }
+      }
+
+    </script>
+
+    </body>
+
+</html>
