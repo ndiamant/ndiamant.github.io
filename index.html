@@ -11,21 +11,23 @@
 
     <style type="text/css">
        * { margin: 0; padding: 0; }
-       body { font: 16px Helvetica, Sans-Serif; line-height: 24px;}
+       body { font: 12px Helvetica, Sans-Serif; line-height: 15px;}
        .clear { clear: both; }
        #page-wrap { width: 800px; margin: 40px auto 60px; }
        #pic { float: right; margin: -30px 0 0 0; }
        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-       h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+       h2.section { font-size: 25px; margin: 0 0 6px 0; position: relative; border-bottom: 1px solid #999;padding: 0 0 8px 0;font-style: normal;}
+       h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; font-style: normal;}
        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
        p { margin: 0 0 16px 0; }
        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
        a:hover { border-bottom-style: solid; color: black; }
        ul { margin: 0 0 10px 17px; }
-       #objective { width: 550px; float: left; }
+       li { margin: 0 0 0px 0px }
+       #objective { width: 550px; float: left;}
        #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; line-height: 1.2;}
-       dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
-       dd { width: 600px; float: right; }
+       dt { font-style: italic; font-weight: bold; font-size: 14px; text-align: right; padding: 0 26px 0 0; width: 70px; float: left; height: 100px; border-right: 1px solid #999;  }
+       dd { width: 800px; float: right; }
        dd.clear { float: none; margin: 0; height: 1px; }
     </style>
 </head>
@@ -53,7 +55,7 @@
 
         <div id="objective">
             <p>
-                I am mathematician and computer scientist with a strong background in the math and practice of machine learning.
+                I am mathematician and computer scientist with a strong background in the math and engineering of machine learning.
                 I have applied and developed my knowledge in two internships, a research position, and many personal projects where I contributed to the full machine learning pipeline - from data collection to model validation.
                 My dream job is to help apply cutting edge research to industry.
             </p>
@@ -64,32 +66,33 @@
         <dl>
             <dd class="clear"></dd>
 
-            <dt>Education</dt>
             <dd>
-                <h2>Harvey Mudd College <span> Claremont, CA - 2015 - 2019</span></h2>
+            <h2 class="section"> Education <h2>
+                <h2> Harvey Mudd College <span> Claremont, CA - 2015 - 2019</span></h2>
                 <p><strong>Major:</strong> Computer Science Math Joint Major<br />
-                   <strong>GPA:</strong> 3.873</p>
+                   <strong>GPA:</strong> 3.873<br />
+                   <strong>Deans List:</strong> Spring 2016, Fall 2016, Spring 2017, Fall 2017, Spring 2018<br />
+                   <strong>Award: </strong> Henry A. Krieger Prize for Outstanding Promise in the Field of Probability Statistics or Operations Research</li>
+                </p>
             </dd>
 
             <dd class="clear"></dd>
 
-            <dt>Experience</dt>
             <dd>
-                <h2>AdRoll <span>Engineering Intern - San Francisco, CA - Summer 2018</span></h2>
+            <h2 class="section"> Experience <h2>
+                <h2> AdRoll <span>Engineering Intern - San Francisco, CA - Summer 2018</span></h2>
                 <ul>
-                    <li> Helped build new scalable analytics product for statistical attribution</li>
-                    <li> Contributed to: data backend in C++ and SQLite, modeling in Python, batch job creation and scheduling in Luigi and AWS</li>
-                    <li> Generated synthetic data for testing probabilistic model </li>
-                    <li> Created data visualizations for new models in D3 </li>
+                    <li> Contributed to every part of the modeling pipeline: data backend in C++ and SQLite, modeling in Python, batch job creation and scheduling in Luigi and AWS, visualizations in D3</li>
+                    <li> Stochastically generated synthetic data for testing complex statistical model of customer conversion </li>
                 </ul>
 
-                <h2>Yelp <span>Engineering Intern - San Francisco, CA - Summer 2017</span></h2>
+                <h2> Yelp <span>Engineering Intern - San Francisco, CA - Summer 2017</span></h2>
                 <ul>
-                    <li>Implemented automatic batch training using Redshift and SQLAlchemy with thorough unit and integration tests </li>
+                    <li>Implemented automatic batch training of models using Redshift and SQLAlchemy with thorough unit and integration tests </li>
                     <li>Developed framework responsible for filtering 72k photos and 6k photo caption edits every day with thorough manual and unit tests </li>
                 </ul>
 
-                <h2>Harvey Mudd Research <span> CS Researcher - Claremont, CA - Summer 2016</span></h2>
+                <h2> Harvey Mudd Research <span> CS Researcher - Claremont, CA - Summer 2016</span></h2>
                 <ul>
                     <li>Generated and analyzed arbitrary order Markov models of how students progress through programming problems</li>
                     <li>Implemented complex MySQL and NumPy data munging pipeline</li>
@@ -98,8 +101,8 @@
 
             <dd class="clear"></dd>
 
-            <dt>Personal Projects</dt>
             <dd>
+            <h2 class="section"> Personal Projects <h2>
                 <h2> Neural Network Regression Confidence Intervals<span>Summer 2019</span></h2>
                 <ul>
                     <li>Designed loss functions for Keras LSTMs to make predictions with confidence bounds</li>
@@ -116,14 +119,10 @@
 
             <dd class="clear"></dd>
 
-            <dt>Course Work</dt>
             <dd>
+            <h2 class="section"> Courses <h2>
                 <h2> Math of Big Data</h2>
                 Wide range of supervised and unsupervised machine learning algorithms with emphasis on mathematical explanation. "Students should be fully equipped to enter industry as a data scientist, read active research in the field of Machine Learning" (<a href=https://math189r.github.io/info/> course site </a>)
-                <ul></ul>
-
-                <h2> Convolutional Neural Networks Independent Study</h2>
-                "A deep dive into details of the deep learning architectures with a focus on learning end-to-end models for these tasks, particularly image classification" (<a href=http://cs231n.stanford.edu> course site </a>). Watching Stanford course lectures and completing assignments
                 <ul></ul>
 
                 <h2> Data Structures and Program Development</h2>
@@ -135,15 +134,15 @@
                 <ul></ul>
 
                 <h2> Other Relevant Course Work</h2>
-                Discrete Math, Intermediate Probability, Bayesian Statistics, Intermediate Linear Algebra, Financial Economics, Stochastic Processes (audit), Finite Fourier Analysis, Mathematical Analysis II, Abstract Algebra
+                Discrete Math, Intermediate Probability, Bayesian Statistics, Intermediate Linear Algebra, Stochastic Processes (audit), Finite Fourier Analysis, Mathematical Analysis II, Abstract Algebra, Advanced Topics in Algorithms, Gaussian Processes (ind. study), Convolutional Neural Networks (ind. study)
                 <ul></ul>
 
             </dd>
 
             <dd class="clear"></dd>
 
-            <dt>Programming Languages</dt>
             <dd>
+            <h2 class="section"> Programming Languages <h2>
                 <h2>Proficient Knowledge</h2>
                 <ul>
                   <li>Python</li>
@@ -164,23 +163,14 @@
 
             <dd class="clear"></dd>
 
-            <dt>Hobbies</dt>
-            <dd>Rock climbing, chess</dd>
-
-            <dd class="clear"></dd>
-
-            <dt>References</dt>
-            <dd>Available on request</dd>
-
-            <dd class="clear"></dd>
         </dl>
 
         <div class="clear"></div>
 
     </div>
     <script type="text/javascript">
-            var h = 180;
-            var w = 180;
+            var h = 90;
+            var w = 90;
             var svg = d3.select("#pic")
             .append("svg")
             .attr("height", h)
@@ -189,7 +179,7 @@
 
             var x = 20;
             var y = 20;
-            var r = 15;
+            var r = 9;
             var n = 10;
             function nextY() {
                 if (y <= 2 * r) {
@@ -242,7 +232,7 @@
             } else if ( col < .4 ) {
             for (var i = 0; i < n; ++i) {
                 data.push([i, 'rgba(' + (0) +','+ (0) +','+ (0)
-                            +',.1)']);
+                            +',.3)']);
             }
             } else if ( col < .6 ) {
             for (var i = 0; i < n; ++i) {
@@ -260,6 +250,7 @@
                             +',1)']);
             }
             }
+            d3.selectAll("h2.section").style("color", data[4][1]);
 
 
 
