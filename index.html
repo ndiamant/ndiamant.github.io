@@ -11,13 +11,13 @@
 
     <style type="text/css">
        * { margin: 0; padding: 0; }
-       body { font: 12px Helvetica, Sans-Serif; line-height: 15px;}
+       body { font: 12px Helvetica, Sans-Serif; line-height: 18px;}
        .clear { clear: both; }
        #page-wrap { width: 800px; margin: 40px auto 60px; }
        #pic { float: right; margin: -30px 0 0 0; }
-       h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
+       h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999;}
        h2.section { font-size: 25px; margin: 0 0 6px 0; position: relative; border-bottom: 1px solid #999;padding: 0 0 8px 0;font-style: normal;}
-       h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; font-style: normal;}
+       h2 { font-size: 18px; margin: 0 6px 6px 0; position: relative; font-style: normal;  line-height: 1.1}
        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
        p { margin: 0 0 16px 0; }
        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
@@ -37,7 +37,7 @@
     <div id="page-wrap">
 
         <div id="contact-info" class="vcard">
-            <a href="full.html" target="_blank">
+            <a href="full.html" target="_blank" title="BIGGER">
             <div id="pic" borderstyle="inset"></div>
             </a>
 
@@ -54,9 +54,9 @@
 
         <div id="objective">
             <p>
-                I am mathematician and computer scientist with a strong background in the math and engineering of machine learning.
-                I have applied and developed my knowledge in two internships, a research position, and many personal projects where I contributed to the full machine learning pipeline - from data collection to model validation.
-                My dream job is to help apply cutting edge research to industry.
+                I am mathematician and computer scientist with a strong background in the theory and engineering of machine learning.
+                I have experience with the full pipeline of a deep learning research project: from collaborating with domain experts, to designing, implementing, and validating neural networks.
+                My ideal role is diving into cutting edge projects applying deep learning to biological data.
             </p>
         </div>
 
@@ -68,10 +68,10 @@
             <dd>
             <h2 class="section"> Education <h2>
                 <h2> Harvey Mudd College <span> Claremont, CA - 2015 - 2019</span></h2>
-                <p><strong>Major:</strong> Computer Science Math Joint Major<br />
-                   <strong>GPA:</strong> 3.873<br />
-                   <strong>Deans List:</strong> Spring 2016, Fall 2016, Spring 2017, Fall 2017, Spring 2018<br />
-                   <strong>Award: </strong> Henry A. Krieger Prize for Outstanding Promise in the Field of Probability Statistics or Operations Research</li>
+                <p>
+                    <strong>Major:</strong> Computer Science Math Joint Major<br />
+                    <strong>GPA:</strong> 3.87<br />
+                    <strong>Awards and Honors: </strong> Henry A. Krieger Prize for Outstanding Promise in the Field of Probability Statistics or Operations Research, Dean's list all eight semesters, graduated with high distinction and math departmental honors
                 </p>
             </dd>
 
@@ -79,19 +79,29 @@
 
             <dd>
             <h2 class="section"> Experience <h2>
-                <h2> AdRoll <span>Engineering Intern - San Francisco, CA - Summer 2018</span></h2>
+                <h2> Machine Learning for Health at Broad Institute <span>ML Engineer II - Summer 2019 to Present</span></h2>
+                <ul>
+                    <li> Collaborated with top research clinicians and communicated complex machine learning concepts to non-experts, leading to many successful research projects 
+                    <li> Contributed multi-processed data-loading and automatic construction of multi-modal neural network architectures to<a href=https://github.com/broadinstitute/ml4h> open source codebase</a></li>
+                </ul>
+                <h2> Computational Cardiovascular Research Group at MIT <span>Research - Winter 2019 to Spring 2020</span></h2>
+                <ul>
+                    <li> Researched best way to generate representations of ECGs for use in downstream tasks. The representations are currently being used in follow up research projects for predicting cardiovascular disease</li>
+                   <li> Wrote <a href=https://arxiv.org/abs/2104.04569> a paper</a> on the method, which was selected for a spotlight talk at <a href=https://sail.health/index.html> SAIL 2021</a></li>
+                </ul>
+                <h2> AdRoll <span>Engineering Intern - Summer 2018</span></h2>
                 <ul>
                     <li> Contributed to every part of the modeling pipeline: data backend in C++ and SQLite, modeling in Python, batch job creation and scheduling in Luigi and AWS, visualizations in D3</li>
-                    <li> Stochastically generated synthetic data for testing complex statistical model of customer conversion </li>
+                    <li> Generated synthetic data for testing complex statistical model of customer conversion using inverse transform sampling</li>
                 </ul>
 
-                <h2> Yelp <span>Engineering Intern - San Francisco, CA - Summer 2017</span></h2>
+                <h2> Yelp <span>Engineering Intern - Summer 2017</span></h2>
                 <ul>
                     <li>Implemented automatic batch training of models using Redshift and SQLAlchemy with thorough unit and integration tests </li>
                     <li>Developed framework responsible for filtering 72k photos and 6k photo caption edits every day with thorough manual and unit tests </li>
                 </ul>
 
-                <h2> Harvey Mudd Research <span> CS Researcher - Claremont, CA - Summer 2016</span></h2>
+                <h2> Harvey Mudd CS Department <span> Research - Summer 2016</span></h2>
                 <ul>
                     <li>Generated and analyzed arbitrary order Markov models of how students progress through programming problems</li>
                     <li>Implemented complex MySQL and NumPy data munging pipeline</li>
@@ -101,63 +111,57 @@
             <dd class="clear"></dd>
 
             <dd>
-            <h2 class="section"> Personal Projects <h2>
-                <h2> Neural Network Regression Confidence Intervals<span>Summer 2019</span></h2>
+            <h2 class="section"> Publications <h2>
+                <h2> Inherited Basis of Visceral, Abdominal Subcutaneous and </br>Gluteofemoral Fat Depots<span> Broad Institute - 26 Aug 2021</span></h2>
+                Saaket Agrawal, Minxian Wang, Marcus D. R. Klarqvist, Joseph Shin, Hesam Dashti, <b>Nathaniel Diamant</b>, Seung Hoan Choi, Sean J. Jurgens, Patrick T. Ellinor, Anthony Philippakis, Kenney Ng, Melina Claussnitzer, Puneet Batra, Amit V. Khera.
+                <a href=https://www.medrxiv.org/content/10.1101/2021.08.24.21262564v1><i>medRxiv</i></a>
                 <ul>
-                    <li>Designed loss functions for Keras LSTMs to make predictions with confidence bounds</li>
-                    <li>Tested models on real and synthetic data and compared to Gaussian Processes</li>
+                    <li> Helped provide neural network derived phenotypes for GWAS </li>
                 </ul>
-                <h2> Spectral Density Kernel for Gaussian Processes <span>Spring 2018</span></h2>
+                <h2> Deep Learning to Predict Cardiac Magnetic Resonance–Derived Left Ventricular Mass and Hypertrophy From 12-Lead ECGs<span> Broad Institute - 15 Jun 2021</span></h2>
+                Shaan Khurshid, Samuel Friedman, James P. Pirruccello, Paolo Di Achille, <b>Nathaniel Diamant</b>, Christopher D. Anderson, Patrick T. Ellinor, Puneet Batra, Jennifer E. Ho, Anthony A. Philippakis, Steven A. Lubitz.
+                <a href=https://www.ahajournals.org/doi/abs/10.1161/CIRCIMAGING.120.012281> <i>Circulation: Cardiovascular Imaging</i></a>
                 <ul>
-                    <li>Efficiently implemented research paper using NumPy</li>
-                    <li>Re-derived gradients and tailored kernel optimization</li>
-                    <li>Reproduced paper's results</li>
+                    <li>Top contributer to the <a href=https://github.com/broadinstitute/ml4h>ML4H codebase </a> used to design and train the models for the research </li>
                 </ul>
-
-            </dd>
-
-            <dd class="clear"></dd>
-
-            <dd>
-            <h2 class="section"> Courses <h2>
-                <h2> Math of Big Data</h2>
-                Wide range of supervised and unsupervised machine learning algorithms with emphasis on mathematical explanation. "Students should be fully equipped to enter industry as a data scientist, read active research in the field of Machine Learning" (<a href=https://math189r.github.io/info/> course site </a>)
-                <ul></ul>
-
-                <h2> Data Structures and Program Development</h2>
-                Analysis of data structures including worst-case, average-case, and amortized analysis. Storage allocation and reclamation. Extensive practice programming in C++
-                <ul></ul>
-
-                <h2> Algorithms</h2>
-                "Algorithm design, analysis, and correctness... sorting and searching, graph theoretic problems such as shortest path and network flow, and topics selected from arithmetic circuits, parallel algorithms, computational geometry, and others... computational complexity, NP-completeness, and approximation algorithms." (<a href=https://www.cs.hmc.edu/program/course-descriptions/> hmc course descriptions </a>)
-                <ul></ul>
-
-                <h2> Other Relevant Course Work</h2>
-                Discrete Math, Intermediate Probability, Bayesian Statistics, Intermediate Linear Algebra, Stochastic Processes (audit), Finite Fourier Analysis, Mathematical Analysis II, Abstract Algebra, Advanced Topics in Algorithms, Gaussian Processes (ind. study), Convolutional Neural Networks (ind. study)
-                <ul></ul>
-
-            </dd>
-
-            <dd class="clear"></dd>
-
-            <dd>
-            <h2 class="section"> Programming Languages <h2>
-                <h2>Proficient Knowledge</h2>
+                <h2> Cohort Design and Natural Language Processing to Reduce Bias in Electronic Health Records Research: The Community Care Cohort Project<span> Broad Institute - 30 May 2021</span></h2>
+                Shaan Khurshid, Christopher Reeder, Lia X. Harrington, Pulkit Singh, Gopal Sarma, Samuel F. Friedman, Paolo Di Achille, <b>Nathaniel Diamant</b>, Jonathan W. Cunningham, Ashby C. Turner, Emily S. Lau, Julian S. Haimovich, Mostafa A. Al-Alusi, Xin Wang, Marcus D.R. Klarqvist, Jeffrey M. Ashburner, Christian Diedrich, Mercedeh Ghadessi, Johanna Mielke, Hanna M. Eilken, Alice McElhinney, Andrea Derix, Steven J. Atlas, Patrick T. Ellinor, Anthony A. Philippakis, Christopher D. Anderson, Jennifer E. Ho, Puneet Batra, Steven A. Lubitz.
+                <a href=https://www.medrxiv.org/content/10.1101/2021.05.26.21257872v1> <i>medRxiv</i></a>
                 <ul>
-                  <li>Python</li>
-                  <li>NumPy and SciPy</li>
-                  <li>C++</li>
-                  <li>SQL</li>
+                    <li>Top contributer to and designer of the code still used to build and update the dataset of millions of patients
+                </ul>
+                <h2> Association of Machine Learning-derived Measures of Body Fat Distribution in >40,000 Individuals with Cardiometabolic Diseases<span> Broad Institute - 10 May 2021</span></h2>
+                Saaket Agrawal, Marcus D. R. Klarqvist, <b>Nathaniel Diamant</b>, Patrick T. Ellinor, Nehal N. Mehta, Anthony Philippakis, Kenney Ng, Puneet Batra, Amit V. Khera.
+                <a href=https://www.medrxiv.org/content/10.1101/2021.05.07.21256854v1> <i>medRxiv</i></a>
+                <ul>
+                    <li> Led the exploratory phase of the project (deriving fat measurements from MRIs) leading to two papers (including above) with more coming  </li>
+                </ul>
+                <h2> Patient Contrastive Learning: a Performant, Expressive,  and Practical Approach to ECG Modeling<span> Broad Institute, MIT - 9 Apr 2021</span></h2>
+                <b>Nathaniel Diamant</b>, Erik Reinertsen, Steven Song, Aaron Aguirre, Collin Stultz, Puneet Batra
+                <a href=https://arxiv.org/abs/2104.04569> <i>arXiv</i></a>
+                <ul>
+                    <li>Developed and implemented novel contrastive learning objective applied to 3 million ECG dataset</li>
+                    <li>Selected for one of five spotlight talks at <a href=https://sail.health/index.html> SAIL 2021</a></li>
+                </ul>
+                <h2> Deep learning to estimate cardiac magnetic resonance–derived left</br> ventricular mass <span> Broad Institute - Apr 2021</span></h2>
+                Shaan Khurshid, Samuel Freesun Friedman, James P. Pirruccello, Paolo Di Achille, <b>Nathaniel Diamant</b>, Christopher D. Anderson, Patrick T. Ellinor, Puneet Batra, Jennifer E. Ho, Anthony A. Philippakis, Steven A. Lubitz.
+                <a href=https://www.sciencedirect.com/science/article/pii/S2666693621000232><i>Cardiovascular Digital Health Journal</i></a>
+                <ul>
+                    <li>Top contributer to the <a href=https://github.com/broadinstitute/ml4h>ML4H codebase </a> used to design and train the models for the research </li>
+                </ul>
+                <h2> Physiology as a Lingua Franca for Clinical Machine Learning<span> Broad Institute - 8 May 2020</span></h2>
+                Aaron Aguirre, Chris Anderson, Puneet Batra, Seung-Hoan Choi, Paolo Di Achille, <b>Nathaniel Diamant</b>, Patrick Ellinor, Connor Emdin, Akl  C. Fahed, Samuel Friedman, Lia Harrington, Jennifer E.Ho, Amit V. Khera, Shaan Khurshid, Marcus Klarqvist, Steve Lubitz, Anthony Philippakis, James Pirruccello, Christopher Reeder, Collin Stultz, Brandon Westover.
+                <a href=https://www.sciencedirect.com/science/article/pii/S2666389920300179> <i>Patterns Opinion</i> </a>
+                <ul>
+                    <li> Helped develop and implement philosophy outlined in the paper
+                </ul>
+                <h2> Genome Wide Associations of Learned Low Dimensional<br> Representations of Cardiac MRI<span> Broad Institute - 13 Dec 2019</span></h2>
+                Samuel F. Friedman, <b>Nathaniel Diamant</b>, James P. Pirruccello, Puneet Batra.
+                <a href=https://nips.cc/Conferences/2019/ScheduleMultitrack?event=131681> <i>NeurIPS: Learning Meaningful Representations of Life</i></a>
+                <ul>
+                    <li> Helped develop latent spaces of cardiac MRIs and ECGs for GWAS using variational autoencoders
                 </ul>
 
-                <h2>Basic Knowledge</h2>
-                <ul>
-                  <li>Java</li>
-                  <li>Julia</li>
-                  <li>Matlab</li>
-                  <li>R</li>
-                  <li>D3</li>
-                </ul>
             </dd>
 
             <dd class="clear"></dd>
@@ -175,6 +179,12 @@
             .attr("height", h)
             .attr("width", w)
             .attr("transform", "translate(-8, 88)");
+
+            svg.append("text")
+                .attr("x", w / 2).attr("y", h - 1)
+                .style("fill", "gray")
+                .style("text-anchor", "middle")
+                .text("(click me)");
 
             var x = 20;
             var y = 20;
