@@ -1,291 +1,534 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
-
-<head>
+  <head>
     <script type="text/javascript" src="d3/d3.js"></script>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Nathaniel Diamant</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>"/>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>"
+    />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"/>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    />
     <style type="text/css">
-       * { margin: 0; padding: 0; }
-       body { font: 12px 'JetBrains Mono', monospace; line-height: 18px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; }
-       .clear { clear: both; }
-       #page-wrap { width: 800px; margin: 40px auto 60px; }
-       #pic { float: right; }
-       h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-       h2.section { font-size: 25px; margin: 0 0 6px 0; position: relative; border-bottom: 1px solid #999; padding: 0 0 8px 0; font-style: normal; }
-       h2 { font-size: 18px; margin: 0 6px 6px 0; font-style: normal; line-height: 1.1; display: flex; justify-content: space-between; align-items: baseline; }
-       h2 span { font-style: italic; font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #999; font-weight: normal; white-space: nowrap; margin-left: 12px; }
-       p { margin: 0 0 16px 0; }
-       a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
-       a:hover { border-bottom-style: solid; color: black; }
-       ul { margin: 0 0 10px 17px; }
-       li { margin: 0 0 0px 0px }
-       #objective { width: 550px; float: left; }
-       #objective p { font-family: 'JetBrains Mono', monospace; font-style: italic; color: #666; line-height: 1.2; }
-       dd { display: block; }
-       dd.clear { margin: 0; height: 1px; }
-       @media (max-width: 840px) {
-           #page-wrap { width: auto; margin: 20px 16px 60px; }
-           #objective { width: auto; float: none; }
-           h1 { font-size: min(9vw, 42px); letter-spacing: -0.05em; }
-           h2 { display: block; }
-           h2 span { display: block; margin-left: 0; white-space: normal; }
-           #last-updated { text-align: left; }
-       }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font:
+          12px "JetBrains Mono",
+          monospace;
+        line-height: 18px;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+        overflow-x: hidden;
+      }
+      .clear {
+        clear: both;
+      }
+      #page-wrap {
+        width: 800px;
+        margin: 40px auto 60px;
+      }
+      #pic {
+        float: right;
+      }
+      h1 {
+        margin: 0 0 16px 0;
+        padding: 0 0 16px 0;
+        font-size: 42px;
+        font-weight: bold;
+        letter-spacing: -2px;
+        border-bottom: 1px solid #999;
+      }
+      h2.section {
+        font-size: 25px;
+        margin: 0 0 6px 0;
+        position: relative;
+        border-bottom: 1px solid #999;
+        padding: 0 0 8px 0;
+        font-style: normal;
+      }
+      h2 {
+        font-size: 18px;
+        margin: 0 6px 6px 0;
+        font-style: normal;
+        line-height: 1.1;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+      h2 span {
+        font-style: italic;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 16px;
+        color: #999;
+        font-weight: normal;
+        white-space: nowrap;
+        margin-left: 12px;
+      }
+      p {
+        margin: 0 0 16px 0;
+      }
+      a {
+        color: #999;
+        text-decoration: none;
+        border-bottom: 1px dotted #999;
+      }
+      a:hover {
+        border-bottom-style: solid;
+        color: black;
+      }
+      ul {
+        margin: 0 0 10px 17px;
+      }
+      li {
+        margin: 0 0 0px 0px;
+      }
+      #objective {
+        width: 550px;
+        float: left;
+      }
+      #objective p {
+        font-family: "JetBrains Mono", monospace;
+        font-style: italic;
+        color: #666;
+        line-height: 1.2;
+      }
+      dd {
+        display: block;
+      }
+      dd.clear {
+        margin: 0;
+        height: 1px;
+      }
+      @media (max-width: 840px) {
+        #page-wrap {
+          width: auto;
+          margin: 20px 16px 60px;
+        }
+        #objective {
+          width: auto;
+          float: none;
+        }
+        h1 {
+          font-size: min(9vw, 42px);
+          letter-spacing: -0.05em;
+        }
+        h2 {
+          display: block;
+        }
+        h2 span {
+          display: block;
+          margin-left: 0;
+          white-space: normal;
+        }
+        #last-updated {
+          text-align: left;
+        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div id="page-wrap">
+      <div id="contact-info" class="vcard">
+        <h1 class="fn">Nathaniel Diamant</h1>
 
-        <div id="contact-info" class="vcard">
-            <h1 class="fn">Nathaniel Diamant</h1>
+        <p>
+          Email:
+          <a class="email" href="mailto:nate@nathanieldiamant.com"
+            >nate@nathanieldiamant.com</a
+          ><br />
+          Website:
+          <a class="email" href="https://nathanieldiamant.com"
+            >nathanieldiamant.com</a
+          ><br />
+          Github: <a href="https://github.com/ndiamant">github.com/ndiamant</a
+          ><br />
+          Publications:
+          <a href="https://scholar.google.com/citations?user=JYKeQIoAAAAJ&hl=en"
+            >Google Scholar</a
+          ><br />
+          LinkedIn:
+          <a href="https://www.linkedin.com/in/nathaniel-diamant-6b35b0106"
+            >nathaniel-diamant</a
+          >
+        </p>
+      </div>
 
-            <p>
-                Email: <a class="email" href="mailto:nate@nathanieldiamant.com">nate@nathanieldiamant.com</a><br />
-                Website: <a class="email" href="https://nathanieldiamant.com">nathanieldiamant.com</a><br/>
-                Github: <a href="https://github.com/ndiamant">github.com/ndiamant</a><br/>
-                Publications: <a href="https://scholar.google.com/citations?user=JYKeQIoAAAAJ&hl=en">Google Scholar</a><br/>
-                LinkedIn: <a href="https://www.linkedin.com/in/nathaniel-diamant-6b35b0106">nathaniel-diamant</a>
-            </p>
-        </div>
+      <a id="pic-link" href="full.html" target="_blank" title="BIGGER"
+        ><div id="pic"></div
+      ></a>
 
-        <a id="pic-link" href="full.html" target="_blank" title="BIGGER"><div id="pic"></div></a>
+      <div id="objective">
+        <p>
+          I am a CS PhD student at Stanford, co-advised by
+          <a href="https://kundajelab.github.io/">Anshul Kundaje</a> and
+          <a href="https://briantrippe.com/">Brian Trippe</a>, working on
+          generative models for biomedicine. Previously, I was an ML engineer at
+          the Broad Institute in the
+          <a href="https://www.broadinstitute.org/ml4h">ML4H group</a> and a
+          Senior AI Scientist at Genentech in
+          <a href="https://github.com/Genentech/BRAID">BRAID</a>.
+        </p>
+        <p>
+          I have led machine learning projects spanning methods research and
+          applied work in small-molecule discovery, genomics, and clinical risk
+          prediction.
+        </p>
+      </div>
 
-        <div id="objective">
-	<p>
-		I am a Stanford CS PhD student, co-advised by <a href="https://kundajelab.github.io/">Anshul Kundaje</a> and <a href="https://briantrippe.com/">Brian Trippe</a>, working on generative models for biomedicine.
-		Previously, I was an ML engineer at the Broad Institute in the <a href="https://www.broadinstitute.org/ml4h">ML4H group</a> and a Senior AI Scientist at Genentech in <a href="https://github.com/Genentech/BRAID">BRAID</a>.
-	</p>
-	<p>
-		I have led machine learning projects spanning methods research and applied work in small-molecule discovery, genomics, and clinical risk prediction.
-	</p>
-        </div>
+      <div class="clear"></div>
 
-        <div class="clear"></div>
+      <dl>
+        <dd class="clear"></dd>
 
-        <dl>
-            <dd class="clear"></dd>
+        <dd>
+          <h2 class="section">Education</h2>
+          <h2>
+            PhD Computer Science — Stanford<span
+              >Stanford, CA — 2024–Present</span
+            >
+          </h2>
+          <ul>
+            <li>
+              Developing novel generative modeling and finetuning methods for
+              biology (co-advised by Brian Trippe and Anshul Kundaje).
+            </li>
+            <li>
+              Stanford Graduate Fellow with three years of fellowship funding.
+            </li>
+            <li>
+              Coursework in information theory, measure theory, SDEs, game
+              theory.
+            </li>
+          </ul>
+          <h2>
+            BS Computer Science and Math — Harvey Mudd College<span
+              >Claremont, CA — 2015–2019</span
+            >
+          </h2>
+          <ul>
+            <li>
+              GPA: 3.87, dean's list all eight semesters, graduated with high
+              distinction and math departmental honors.
+            </li>
+            <li>
+              Henry A. Krieger Prize for Outstanding Promise in the Field of
+              Probability, Statistics, or Operations Research (1–2 per
+              graduating class).
+            </li>
+          </ul>
+        </dd>
 
-            <dd>
-            <h2 class="section"> Education </h2>
-                <h2>PhD Computer Science — Stanford<span>Stanford, CA — 2024–Present</span></h2>
-                <ul>
-                    <li>Developing novel generative modeling and finetuning methods for biology (co-advised by Brian Trippe and Anshul Kundaje).</li>
-                    <li>Stanford Graduate Fellow with three years of fellowship funding.</li>
-                    <li>Coursework in information theory, measure theory, SDEs, game theory.</li>
-                </ul>
-                <h2>BS Computer Science and Math — Harvey Mudd College<span>Claremont, CA — 2015–2019</span></h2>
-                <ul>
-                    <li>GPA: 3.87, dean's list all eight semesters, graduated with high distinction and math departmental honors.</li>
-                    <li>Henry A. Krieger Prize for Outstanding Promise in the Field of Probability, Statistics, or Operations Research (1–2 per graduating class).</li>
-                </ul>
-            </dd>
+        <dd class="clear"></dd>
 
-            <dd class="clear"></dd>
+        <dd>
+          <h2 class="section">Experience</h2>
+          <h2>
+            Senior AI Scientist — Genentech Early Research<span
+              >South SF, CA — 2022–2025</span
+            >
+          </h2>
+          <ul>
+            <li>
+              Developed and implemented (in PyTorch) graph deep learning,
+              semi-supervised learning, uncertainty quantification, and
+              generative modeling methods for small molecule, macrocyclic
+              peptide, single cell RNA-seq, and regulatory genomic applications.
+            </li>
+            <li>
+              Received gRED Recognition Award (top 10% research employee) both
+              eligible years.
+            </li>
+            <li>
+              10xed binding strength of selected peptides over expert selection
+              using novel deep learning statistical inference method.
+            </li>
+            <li>
+              Designed small molecule selection algorithm responsible for 100s
+              of synthesized molecules and several novel candidates.
+            </li>
+          </ul>
+          <h2>
+            ML Engineer II — Broad Institute Machine Learning for Health
+            Group<span>Cambridge, MA — 2019–2022</span>
+          </h2>
+          <ul>
+            <li>
+              Collaborated with clinical researchers on deep learning
+              cardiovascular imaging and genetics applications resulting in two
+              patents and improved disease understanding.
+            </li>
+            <li>
+              Co-wrote open-source TensorFlow repo for multi-modal, multi-task
+              clinical deep learning still used for all of the team's projects.
+            </li>
+          </ul>
+          <h2>
+            Research Affiliate (part-time) — MIT Computational Cardiovascular
+            Research Group<span>Cambridge, MA — 2019–2020</span>
+          </h2>
+          <ul>
+            <li>
+              Developed and published ECG foundation model resulting in several
+              clinical and machine learning follow-up works.
+            </li>
+          </ul>
+          <h2>
+            ML Engineering Intern — AdRoll<span>SF, CA — Summer 2018</span>
+          </h2>
+          <ul>
+            <li>
+              Implemented inverse transform sampler of statistical model of
+              advertising conversions used in customer dashboard.
+            </li>
+          </ul>
+          <h2>ML Engineering Intern — Yelp<span>SF, CA — Summer 2017</span></h2>
+          <ul>
+            <li>
+              Implemented spam photo filtering backend with millions of uses per
+              day using Amazon Redshift and learned industry standard coding
+              practices.
+            </li>
+          </ul>
+        </dd>
 
-            <dd>
-            <h2 class="section"> Experience </h2>
-                <h2>Senior AI Scientist — Genentech Early Research<span>South SF, CA — 2022–2025</span></h2>
-                <ul>
-                    <li>Developed and implemented (in PyTorch) graph deep learning, semi-supervised learning, uncertainty quantification, and generative modeling methods for small molecule, macrocyclic peptide, single cell RNA-seq, and regulatory genomic applications.</li>
-                    <li>Received gRED Recognition Award (top 10% research employee) both eligible years.</li>
-                    <li>10xed binding strength of selected peptides over expert selection using novel deep learning statistical inference method.</li>
-                    <li>Designed small molecule selection algorithm responsible for 100s of synthesized molecules and several novel candidates.</li>
-                </ul>
-                <h2>ML Engineer II — Broad Institute Machine Learning for Health Group<span>Cambridge, MA — 2019–2022</span></h2>
-                <ul>
-                    <li>Collaborated with clinical researchers on deep learning cardiovascular imaging and genetics applications resulting in two patents and improved disease understanding.</li>
-                    <li>Co-wrote open-source TensorFlow repo for multi-modal, multi-task clinical deep learning still used for all of the team's projects.</li>
-                </ul>
-                <h2>Research Affiliate (part-time) — MIT Computational Cardiovascular Research Group<span>Cambridge, MA — 2019–2020</span></h2>
-                <ul>
-                    <li>Developed and published ECG foundation model resulting in several clinical and machine learning follow-up works.</li>
-                </ul>
-                <h2>ML Engineering Intern — AdRoll<span>SF, CA — Summer 2018</span></h2>
-                <ul>
-                    <li>Implemented inverse transform sampler of statistical model of advertising conversions used in customer dashboard.</li>
-                </ul>
-                <h2>ML Engineering Intern — Yelp<span>SF, CA — Summer 2017</span></h2>
-                <ul>
-                    <li>Implemented spam photo filtering backend with millions of uses per day using Amazon Redshift and learned industry standard coding practices.</li>
-                </ul>
-            </dd>
+        <dd class="clear"></dd>
 
-            <dd class="clear"></dd>
+        <dd>
+          <h2 class="section">Selected Publications</h2>
+          <h2>
+            Calibrating Generative Models<span>arXiv (under review), 2025</span>
+          </h2>
+          Smith, H., <b>Diamant, N.</b>, Trippe, B.
+          <ul>
+            <li>
+              Contribution: Extended method and ran experiments for LLMs and
+              discrete diffusion models.
+            </li>
+          </ul>
+          <h2>
+            A cell atlas foundation model for scalable search of similar human
+            cells<span>Nature, 2025</span>
+          </h2>
+          Heimberg, G., Kuo, T., DePianto, D., Salem, O., Heigl, T., ...,
+          <b>Diamant, N.</b>, et al.
+          <ul>
+            <li>
+              Contribution: Designed and implemented interpretability method.
+            </li>
+          </ul>
+          <h2>
+            Conformalized deep splines for optimal and efficient prediction
+            sets<span>AISTATS, 2024</span>
+          </h2>
+          <b>Diamant, N.</b>, Hajiramezanali, E., Biancalani, T., Scalia, G.
+          <ul>
+            <li>Contribution: Invented method and ran all experiments.</li>
+          </ul>
+          <h2>
+            Improving graph generation by restricting graph bandwidth<span
+              >ICML, 2023</span
+            >
+          </h2>
+          <b>Diamant, N.</b>, Tseng, A., Chuang, K., Biancalani, T., Scalia, G.
+          <ul>
+            <li>Contribution: Invented method and ran all experiments.</li>
+          </ul>
+          <h2>
+            Patient contrastive learning: A performant, expressive, and
+            practical approach to electrocardiogram modeling<span
+              >PLoS Comp Bio, 2022</span
+            >
+          </h2>
+          <b>Diamant, N.</b>, Reinertsen, E., Song, S., Aguirre, A., Stultz, C.,
+          et al.
+          <ul>
+            <li>Contribution: Invented method and ran all experiments.</li>
+          </ul>
+        </dd>
 
-            <dd>
-            <h2 class="section"> Selected Publications </h2>
-                <h2>Calibrating Generative Models<span>arXiv (under review), 2025</span></h2>
-                Smith, H., <b>Diamant, N.</b>, Trippe, B.
-                <ul>
-                    <li>Contribution: Extended method and ran experiments for LLMs and discrete diffusion models.</li>
-                </ul>
-                <h2>A cell atlas foundation model for scalable search of similar human cells<span>Nature, 2025</span></h2>
-                Heimberg, G., Kuo, T., DePianto, D., Salem, O., Heigl, T., ..., <b>Diamant, N.</b>, et al.
-                <ul>
-                    <li>Contribution: Designed and implemented interpretability method.</li>
-                </ul>
-                <h2>Conformalized deep splines for optimal and efficient prediction sets<span>AISTATS, 2024</span></h2>
-                <b>Diamant, N.</b>, Hajiramezanali, E., Biancalani, T., Scalia, G.
-                <ul>
-                    <li>Contribution: Invented method and ran all experiments.</li>
-                </ul>
-                <h2>Improving graph generation by restricting graph bandwidth<span>ICML, 2023</span></h2>
-                <b>Diamant, N.</b>, Tseng, A., Chuang, K., Biancalani, T., Scalia, G.
-                <ul>
-                    <li>Contribution: Invented method and ran all experiments.</li>
-                </ul>
-                <h2>Patient contrastive learning: A performant, expressive, and practical approach to electrocardiogram modeling<span>PLoS Comp Bio, 2022</span></h2>
-                <b>Diamant, N.</b>, Reinertsen, E., Song, S., Aguirre, A., Stultz, C., et al.
-                <ul>
-                    <li>Contribution: Invented method and ran all experiments.</li>
-                </ul>
-            </dd>
+        <dd class="clear"></dd>
+      </dl>
 
-            <dd class="clear"></dd>
+      <div class="clear"></div>
 
-        </dl>
-
-        <div class="clear"></div>
-
-        <p id="last-updated" style="color: #999; font-size: 11px; text-align: right;">Last updated: April 2, 2026</p>
-
+      <p
+        id="last-updated"
+        style="color: #999; font-size: 11px; text-align: right"
+      >
+        Last updated: April 2, 2026
+      </p>
     </div>
     <script type="text/javascript">
-            var r = 9;
-            var n = 10;
+      var r = 9;
+      var n = 10;
 
-            var pageWrap = document.getElementById('page-wrap');
-            var objEl = document.getElementById('objective');
-            var isMobile = window.innerWidth <= 840;
-            var w, h;
-            if (isMobile) {
-                var contactInfo = document.getElementById('contact-info');
-                var picLink = document.getElementById('pic-link');
-                var contactP = contactInfo.querySelector('p');
-                contactInfo.insertBefore(picLink, contactP);
-                w = 120;
-                h = Math.round(contactP.getBoundingClientRect().height);
-            } else {
-                var gap = 16;
-                w = Math.round(pageWrap.getBoundingClientRect().width - objEl.getBoundingClientRect().width - gap);
-                h = Math.round(objEl.getBoundingClientRect().height);
-            }
+      var pageWrap = document.getElementById("page-wrap");
+      var objEl = document.getElementById("objective");
+      var isMobile = window.innerWidth <= 840;
+      var w, h;
+      if (isMobile) {
+        var contactInfo = document.getElementById("contact-info");
+        var picLink = document.getElementById("pic-link");
+        var contactP = contactInfo.querySelector("p");
+        contactInfo.insertBefore(picLink, contactP);
+        w = 120;
+        h = Math.round(contactP.getBoundingClientRect().height);
+      } else {
+        var gap = 16;
+        w = Math.round(
+          pageWrap.getBoundingClientRect().width -
+            objEl.getBoundingClientRect().width -
+            gap,
+        );
+        h = Math.round(objEl.getBoundingClientRect().height);
+      }
 
-            var svg = d3.select("#pic")
-            .append("svg")
-            .attr("height", h)
-            .attr("width", w)
-            .style("display", "block")
-            .style("overflow", "hidden");
+      var svg = d3
+        .select("#pic")
+        .append("svg")
+        .attr("height", h)
+        .attr("width", w)
+        .style("display", "block")
+        .style("overflow", "hidden");
 
-            var x = 20;
-            var y = 20;
-            function nextY() {
-                if (y <= 2 * r) {
-                    y += r;
-                    return y;
-                }
-                if (y >= h - 2 * r) {
-                    y -= r;
-                    return y
-                }
-                var flip = d3.randomUniform(1)();
-                if (flip > .5) {
-                    y += r;
-                    return y;
-                }
-                y -= r;
-                return y;
-            }
-            function nextX() {
-                if (x <= 2 * r) {
-                    x += r;
-                    return x;
-                }
-                if (x >= w - 2 * r) {
-                    x -= r;
-                    return x
-                }
-                var flip = d3.randomUniform(1)();
-                if (flip > .5) {
-                    x += r;
-                    return x;
-                }
-                x -= r;
-                return x;
-            }
+      var x = 20;
+      var y = 20;
+      function nextY() {
+        if (y <= 2 * r) {
+          y += r;
+          return y;
+        }
+        if (y >= h - 2 * r) {
+          y -= r;
+          return y;
+        }
+        var flip = d3.randomUniform(1)();
+        if (flip > 0.5) {
+          y += r;
+          return y;
+        }
+        y -= r;
+        return y;
+      }
+      function nextX() {
+        if (x <= 2 * r) {
+          x += r;
+          return x;
+        }
+        if (x >= w - 2 * r) {
+          x -= r;
+          return x;
+        }
+        var flip = d3.randomUniform(1)();
+        if (flip > 0.5) {
+          x += r;
+          return x;
+        }
+        x -= r;
+        return x;
+      }
 
+      var data = [];
+      var col = Math.random();
+      if (col < 0.2) {
+        for (var i = 0; i < n; ++i) {
+          data.push([
+            i,
+            "rgba(" +
+              (50 + (100 * i) / n) +
+              "," +
+              (50 + (150 * i) / n) +
+              "," +
+              (200 + (50 * i) / n) +
+              ",1)",
+          ]);
+        }
+      } else if (col < 0.4) {
+        for (var i = 0; i < n; ++i) {
+          data.push([i, "rgba(" + 0 + "," + 0 + "," + 0 + ",.3)"]);
+        }
+      } else if (col < 0.6) {
+        for (var i = 0; i < n; ++i) {
+          data.push([
+            i,
+            "rgba(" +
+              (200 + (50 * i) / n) +
+              "," +
+              (50 + (50 * i) / n) +
+              "," +
+              (0 * i) / n +
+              ",1)",
+          ]);
+        }
+      } else if (col < 0.8) {
+        for (var i = 0; i < n; ++i) {
+          data.push([
+            i,
+            "rgba(" +
+              (200 + (50 * i) / n) +
+              "," +
+              (10 + (100 * i) / n) +
+              "," +
+              (50 + (150 * i) / n) +
+              ",1)",
+          ]);
+        }
+      } else {
+        for (var i = 0; i < n; ++i) {
+          data.push([
+            i,
+            "rgba(" +
+              (50 + (100 * i) / n) +
+              "," +
+              (200 + (50 * i) / n) +
+              "," +
+              (50 + (50 * i) / n) +
+              ",1)",
+          ]);
+        }
+      }
+      d3.selectAll("h2.section").style("color", data[4][1]);
 
-            var data = []
-            var col = Math.random();
-            if ( col < .2 ) {
-            for (var i = 0; i < n; ++i) {
-                data.push([i, 'rgba(' + (50+100*i/n) +','+ (50+150*i/n) +','+ (200+50*i/n)
-                            +',1)']);
-            }
-            } else if ( col < .4 ) {
-            for (var i = 0; i < n; ++i) {
-                data.push([i, 'rgba(' + (0) +','+ (0) +','+ (0)
-                            +',.3)']);
-            }
-            } else if ( col < .6 ) {
-            for (var i = 0; i < n; ++i) {
-                data.push([i, 'rgba(' + (200+50*i/n) +','+ (50+50*i/n) +','+ (0*i/n)
-                            +',1)']);
-            }
-            } else if ( col < .8 ) {
-            for (var i = 0; i < n; ++i) {
-                data.push([i, 'rgba(' + (200+50*i/n) +','+ (10+100*i/n) +','+ (50+150*i/n)
-                            +',1)']);
-            }
-            } else {
-            for (var i = 0; i < n; ++i) {
-                data.push([i, 'rgba(' + (50+100*i/n) +','+ (200+50*i/n) +','+ (50+50*i/n)
-                            +',1)']);
-            }
-            }
-            d3.selectAll("h2.section").style("color", data[4][1]);
-
-
-
-            var rect = svg.selectAll("rect")
-                          .data(data)
-                          .enter()
-                          //.append("circle")
-                          //.attr("cx", x)
-                          //.attr("cy", y)
-                          //.attr("r", r)
-                          .append("rect")
-                          .attr("width", r)
-                          .attr("height", r)
-                          .attr("x", x)
-                          .attr("y", y)
-                          .attr("fill", function(d) {
-                              return d[1];})
-                          .transition()
-                          .delay(function(d) { return d[0]; })
-                          .duration(1000)
-            .on("start", function repeat() {
-            d3.active(this)
-                .attr("y", nextY())
-                .transition()
-                .attr("x", nextX())
-                .transition()
-                .on("start", repeat);
-            });
-
-
+      var rect = svg
+        .selectAll("rect")
+        .data(data)
+        .enter()
+        //.append("circle")
+        //.attr("cx", x)
+        //.attr("cy", y)
+        //.attr("r", r)
+        .append("rect")
+        .attr("width", r)
+        .attr("height", r)
+        .attr("x", x)
+        .attr("y", y)
+        .attr("fill", function (d) {
+          return d[1];
+        })
+        .transition()
+        .delay(function (d) {
+          return d[0];
+        })
+        .duration(1000)
+        .on("start", function repeat() {
+          d3.active(this)
+            .attr("y", nextY())
+            .transition()
+            .attr("x", nextX())
+            .transition()
+            .on("start", repeat);
+        });
     </script>
-
-</body>
-
+  </body>
 </html>
