@@ -18,7 +18,7 @@
        #page-wrap { width: 800px; margin: 40px auto 60px; }
        #pic { float: right; }
        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
-       h2.section { font-size: 25px; margin: 0 0 6px 0; position: relative; border-bottom: 1px solid #999;padding: 0 0 8px 0;font-style: normal;}
+       h2.section { font-size: 25px; margin: 0 0 6px 0; position: relative; border-bottom: 1px solid #999; padding: 0 0 8px 0; font-style: normal; }
        h2 { font-size: 18px; margin: 0 6px 6px 0; font-style: normal; line-height: 1.1; display: flex; justify-content: space-between; align-items: baseline; }
        h2 span { font-style: italic; font-family: 'JetBrains Mono', monospace; font-size: 16px; color: #999; font-weight: normal; white-space: nowrap; margin-left: 12px; }
        p { margin: 0 0 16px 0; }
@@ -26,10 +26,17 @@
        a:hover { border-bottom-style: solid; color: black; }
        ul { margin: 0 0 10px 17px; }
        li { margin: 0 0 0px 0px }
-       #objective { width: 550px; float: left;}
-       #objective p { font-family: 'JetBrains Mono', monospace; font-style: italic; color: #666; line-height: 1.2;}
-dd { width: 800px; float: right; }
-       dd.clear { float: none; margin: 0; height: 1px; }
+       #objective { width: 550px; float: left; }
+       #objective p { font-family: 'JetBrains Mono', monospace; font-style: italic; color: #666; line-height: 1.2; }
+       dd { display: block; }
+       dd.clear { margin: 0; height: 1px; }
+       @media (max-width: 840px) {
+           #page-wrap { width: auto; margin: 20px 16px 60px; }
+           #objective { width: auto; float: none; }
+           h2 { display: block; }
+           h2 span { display: block; margin-left: 0; white-space: normal; }
+           #last-updated { text-align: left; }
+       }
     </style>
 </head>
 
@@ -49,7 +56,7 @@ dd { width: 800px; float: right; }
             </p>
         </div>
 
-        <a href="full.html" target="_blank" title="BIGGER"><div id="pic"></div></a>
+        <a id="pic-link" href="full.html" target="_blank" title="BIGGER"><div id="pic"></div></a>
 
         <div id="objective">
 	<p>
@@ -148,7 +155,7 @@ dd { width: 800px; float: right; }
 
         <div class="clear"></div>
 
-        <p style="color: #999; font-size: 11px; text-align: right;">Last updated: April 2, 2026</p>
+        <p id="last-updated" style="color: #999; font-size: 11px; text-align: right;">Last updated: April 2, 2026</p>
 
     </div>
     <script type="text/javascript">
@@ -157,9 +164,20 @@ dd { width: 800px; float: right; }
 
             var pageWrap = document.getElementById('page-wrap');
             var objEl = document.getElementById('objective');
-            var gap = 16;
-            var w = Math.round(pageWrap.getBoundingClientRect().width - objEl.getBoundingClientRect().width - gap);
-            var h = Math.round(objEl.getBoundingClientRect().height);
+            var isMobile = window.innerWidth <= 840;
+            var w, h;
+            if (isMobile) {
+                var contactInfo = document.getElementById('contact-info');
+                var picLink = document.getElementById('pic-link');
+                var contactP = contactInfo.querySelector('p');
+                contactInfo.insertBefore(picLink, contactP);
+                w = 120;
+                h = Math.round(contactP.getBoundingClientRect().height);
+            } else {
+                var gap = 16;
+                w = Math.round(pageWrap.getBoundingClientRect().width - objEl.getBoundingClientRect().width - gap);
+                h = Math.round(objEl.getBoundingClientRect().height);
+            }
 
             var svg = d3.select("#pic")
             .append("svg")
