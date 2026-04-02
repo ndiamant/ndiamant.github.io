@@ -1,14 +1,12 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <p>
-    <input type="text" id="word" />
-  </p>
-
-  <script type="text/javascript" src="d3/d3.js"></script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script src="d3/d3.js"></script>
+  </head>
   <body>
-    <script type="text/javascript">
+    <p><input type="text" id="word" /></p>
+    <script>
       var h = window.innerHeight - 40;
       var w = window.innerWidth - 40;
       var svg = d3
@@ -23,7 +21,7 @@
 
       function update(word) {
         svg.selectAll("*").remove();
-        sw = word.slice(0, 10);
+        var sw = word.slice(0, 10);
         draw(w / 2, h / 2, 1 - Math.floor(w / h), 0.7 * Math.max(w, h), sw, 1);
       }
 
@@ -40,14 +38,7 @@
           .append("g")
           .attr(
             "transform",
-            "translate(" +
-              x +
-              "," +
-              y +
-              ")" +
-              "rotate(" +
-              180 * (choice % 2) +
-              ")",
+            "translate(" + x + "," + y + ")rotate(" + 180 * (choice % 2) + ")",
           );
         if (o == 1) {
           group
@@ -61,7 +52,7 @@
             .attr("width", l / 2)
             .attr("y", -b / 2)
             .attr("height", b)
-            .style("fill", "rgb(" + 255 * blessed + ", 0, 0)");
+            .style("fill", "rgb(" + 255 * blessed + ",0,0)");
           draw(x - l / 2, y, o, l, sw, blessed * (choice % 2));
           draw(x + l / 2, y, o, l, sw, blessed * (1 - (choice % 2)));
         } else {
@@ -76,7 +67,7 @@
             .attr("width", b)
             .attr("x", -b / 2)
             .attr("height", l / 2)
-            .style("fill", "rgb(" + 255 * blessed + ", 0, 0)");
+            .style("fill", "rgb(" + 255 * blessed + ",0,0)");
           draw(x, y - l / 2, o, l, sw, blessed * (choice % 2));
           draw(x, y + l / 2, o, l, sw, blessed * (1 - (choice % 2)));
         }
