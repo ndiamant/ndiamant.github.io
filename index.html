@@ -110,6 +110,44 @@
         margin: 0;
         height: 1px;
       }
+      @media print {
+        body {
+          font-size: 10px;
+          line-height: 15px;
+        }
+        #page-wrap {
+          width: auto;
+          margin: 0;
+        }
+        #pic-link,
+        #pic {
+          display: none;
+        }
+        #objective {
+          width: auto;
+          float: none;
+        }
+        a {
+          color: black;
+          border-bottom: none;
+        }
+        h1 {
+          font-size: 28px;
+          letter-spacing: -1px;
+        }
+        h2.section {
+          font-size: 18px;
+        }
+        h2 {
+          font-size: 13px;
+        }
+        h2 span {
+          font-size: 11px;
+        }
+        #last-updated {
+          text-align: left;
+        }
+      }
       @media (max-width: 840px) {
         #page-wrap {
           width: auto;
